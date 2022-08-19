@@ -6,7 +6,7 @@ Go implementation of Arcface inference
 
 ## Prerequisites
 
-- The onnx-format models used the code is ["**buffalo_l**"](http://insightface.cn-sh2.ufileos.com/models/buffalo_l.zip) from [insightface](https://github.com/deepinsight/insightface/tree/master/model_zoo)
+- The onnx-format models used the code is ["**buffalo_l**"](https://insightface.cn-sh2.ufileos.com/models/buffalo_l.zip) from [insightface](https://github.com/deepinsight/insightface/tree/master/model_zoo)
 - OpenCV (v4.5.5 in my environment) is needed, because some codes borrowed from [gocv](https://github.com/hybridgroup/gocv) to implement EstimateAffinePartial2DWithParams().
 
 
