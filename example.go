@@ -48,7 +48,7 @@ func main() {
 	*/
 
 
-	// 截取 校正后的人脸, 只取第一个人脸
+	// just use the first face data, which score is the highest
 	features, err := arcface.FaceFeatures(srcImage, kpss[0])
 	if err != nil {
 		log.Fatal("FaceFeatures() error: %s\n", err.Error())
