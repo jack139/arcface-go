@@ -5,7 +5,7 @@ import (
 	"log"
 	"github.com/disintegration/imaging"
 
-	"arcface-go/arcface"
+	"github.com/jack139/arcface-go/arcface"
 )
 
 const (

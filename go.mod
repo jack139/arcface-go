@@ -1,4 +1,4 @@
-module arcface-go
+module github.com/jack139/arcface-go
 
 go 1.15
 

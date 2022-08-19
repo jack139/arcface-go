@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"image"
 
-	"arcface-go/gocvx"
+	"github.com/jack139/arcface-go/gocvx"
 )
 
 var (
