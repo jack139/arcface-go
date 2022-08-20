@@ -1,3 +1,4 @@
+// Package to provide face-detection and features-retrieving
 package arcface
 
 import (
@@ -19,6 +20,8 @@ var (
 	arcfaceModel *onnxruntime.ORTSession
 )
 
+// Load onnx model from infightface, based on "buffalo_l" (det_10g.onnx, w600k_r50.onnx).
+// onnxmodel_path is the path way to onnx models.
 func LoadOnnxModel(onnxmodel_path string) (err error) {
 	ortEnvDet := onnxruntime.NewORTEnv(onnxruntime.ORT_LOGGING_LEVEL_ERROR, "development")
 	ortDetSO := onnxruntime.NewORTSessionOptions()
@@ -36,7 +39,8 @@ func LoadOnnxModel(onnxmodel_path string) (err error) {
 	return nil
 }
 
-// Detect face in src image
+// Detect face in src image,
+// return face boxes and landmarks, ordered by predict scores.
 func FaceDetect(src image.Image) ([][]float32, [][]float32, error) {
 	shape1 := []int64{1, 3, det_model_input_size, det_model_input_size}
 	input1, det_scale := preprocessImage(src, det_model_input_size)
@@ -62,8 +66,8 @@ func FaceDetect(src image.Image) ([][]float32, [][]float32, error) {
 }
 
 // Get face features by Arcface
-// src is original image
-// lmk is face landmark detected by FaceDetect()
+// Parameter src is original image, lmk is face landmark detected by FaceDetect(),
+// return features in a arrary
 func FaceFeatures(src image.Image, lmk []float32) ([]float32, error) {
 	aimg, err := norm_crop(src, lmk)
 	if err!=nil {
