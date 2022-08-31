@@ -49,10 +49,13 @@ func main() {
 
 
 	// just use the first face data, which score is the highest
-	features, err := arcface.FaceFeatures(srcImage, kpss[0])
+	features, normFace, err := arcface.FaceFeatures(srcImage, kpss[0])
 	if err != nil {
 		log.Fatal("FaceFeatures() error: %s\n", err.Error())
 	}
+
+	// normalized face image
+	_ = imaging.Save(normFace, "norm_face.jpg")
 
 	log.Println("features: ", features)
 }

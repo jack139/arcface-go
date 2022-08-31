@@ -67,11 +67,11 @@ func FaceDetect(src image.Image) ([][]float32, [][]float32, error) {
 
 // Get face features by Arcface
 // Parameter src is original image, lmk is face landmark detected by FaceDetect(),
-// return features in a arrary
-func FaceFeatures(src image.Image, lmk []float32) ([]float32, error) {
+// return features in a arrary, and norm_crop image
+func FaceFeatures(src image.Image, lmk []float32) ([]float32, image.Image, error) {
 	aimg, err := norm_crop(src, lmk)
 	if err!=nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	// save normalization crop face for test
@@ -90,12 +90,12 @@ func FaceFeatures(src image.Image, lmk []float32) ([]float32, error) {
 		},
 	})
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	if len(res2) == 0 {
-		return nil, errors.New("Fail to get result")
+		return nil, nil, errors.New("Fail to get result")
 	}
 
-	return res2[0].Value.([]float32), nil
+	return res2[0].Value.([]float32), aimg, nil
 }
