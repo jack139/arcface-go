@@ -25,5 +25,5 @@ CGO_CPPFLAGS="-I/usr/local/include/opencv4" CGO_LDFLAGS="-lopencv_core -lopencv_
 
 
 
-## sample API
+## Sample API
 [arcface-go-api](https://github.com/jack139/arcface-go-api)
