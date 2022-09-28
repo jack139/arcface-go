@@ -22,3 +22,8 @@ CGO_CPPFLAGS="-I/usr/local/include/opencv4" CGO_LDFLAGS="-lopencv_core -lopencv_
 
 - If your ```onnxruntime``` and ```opencv``` is not installed in ```/usr/local```, some paths in CGO flags and ```LD_LIARARY_PATH``` should be corrected.
 - path to "**buffalo_l**" should be corrected in ```example.go``` .
+
+
+
+## sample API
+[arcface-go-api](https://github.com/jack139/arcface-go-api)
