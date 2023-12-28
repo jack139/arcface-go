@@ -17,10 +17,10 @@ Go implementation of Arcface inference
 The example is too simple, detect faces in the input image and retrieve features of the first face.
 
 ```
-CGO_CPPFLAGS="-I/usr/local/include/opencv4" CGO_LDFLAGS="-lopencv_core -lopencv_calib3d -lopencv_imgproc" LD_LIBRARY_PATH=/usr/local/lib go run example.go
+go run example.go
 ```
 
-- If your ```onnxruntime``` and ```opencv``` is not installed in ```/usr/local```, some paths in CGO flags and ```LD_LIARARY_PATH``` should be corrected.
+- If your ```onnxruntime``` and ```opencv``` is not installed in ```/usr/local```, some paths in CGO flags and ```LD_LIARARY_PATH``` should be corrected (CGO_CPPFLAGS="-I/path/to/include/opencv4" LD_LIBRARY_PATH=/path/to/lib ).
 - path to "**buffalo_l**" should be corrected in ```example.go``` .
 
 
